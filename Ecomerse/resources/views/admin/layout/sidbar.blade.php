@@ -36,7 +36,7 @@
                with font-awesome or any other icon font library -->
 
                <li class="nav-item">
-                <a href="pages/widgets.html" class="nav-link">
+                <a href="/dashboard" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
                     Dashboard
@@ -46,27 +46,67 @@
                 </a>
               </li>
 
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <li class="nav-item">
+                <a href="/slider" class="nav-link">
+                  <i class="fa fa-check
+                  "></i>
+                  <p>
+                     Sliders
+                    <span class="right badge badge-danger"></span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+               <a href="/banner" class="nav-link">
+                 <i class="fa fa-folder"></i>
+                 <p>
+                   Banners
+
+                   <span class="right badge badge-danger"></span>
+                 </p>
+               </a>
+             </li>
+             <li class="nav-item">
+              <a href="/categories" class="nav-link">
+                <i class="fa fa-bars"></i>
+                <p>
+                  Categories
+
+                  <span class="right badge badge-danger"></span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+             <a href="/products" class="nav-link">
+               <i class="fa fa-calendar"></i>
+               <p>
+                 Products
+
+                 <span class="right badge badge-danger"></span>
+               </p>
+             </a>
+           </li>
+           <li class="nav-item">
+            <a href="/wishlist" class="nav-link">
+              <i class="fa fa-heartbeat"></i>
               <p>
-                Majors
-                <i class="right fas fa-angle-left"></i>
+                Wishlists
+
+                <span class="right badge badge-danger"></span>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href=".//" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Create Major</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Show all majors</p>
-                </a>
-              </li>
+          </li>
+
+
+
+          <li class="nav-item ">
+            <a href="contacts" class="nav-link">
+              <i class="fa fa-phone	"></i>
+              <p>
+                CoutactUs
+                <i class="right badge badge-danger"></i>
+              </p>
+            </a>
             </ul>
           </li>
         </ul>

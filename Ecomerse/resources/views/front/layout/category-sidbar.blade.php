@@ -12,10 +12,6 @@ aria-labelledby="nav__categories">
   <div class="nav__side-logo mb-2">
     <img class="w-100" src="{{asset("front")}}/assets/images/logo.png" alt="">
   </div>
-  <ul class="nav__list list-unstyled">
-    <li class="nav__link nav__side-link"><a href="/shop" class="py-3">جميع المنتجات</a></li>
-    <li class="nav__link nav__side-link"><a href="/shop" class="py-3">كتب عربيه</a></li>
-    <li class="nav__link nav__side-link"><a href="/shop" class="py-3">كتب انجليزية</a></li>
-  </ul>
+  <x-category-component />
 </div>
 </div>

@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Slider;
+use App\Models\Contacts;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,7 +15,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         \App\Models\User::factory(10)->create();
-         Slider::factory(10)->create();
+        $this->call([
+            SliderSeeder::class,
+        ]);
+        $this->call([
+            BannerSeeder::class,
+        ]);
+        $this->call([
+            CategoriesSeeder::class,
+        ]);
+        $this->call([
+            ProductSeeder::class,
+        ]);
+        $this->call([
+            WishlistSeeder::class
+        ]);
+        $this->call([
+            ContactsSeeder::class
+        ]);
+
+
     }
 }
