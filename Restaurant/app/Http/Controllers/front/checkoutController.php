@@ -17,36 +17,23 @@ class checkoutController extends Controller
     }
 
     public function  placeorder(request $request){
-   
 
-        $request->validate([
-            'name' => ['required', 'max:50', 'string'],
-            'phone' => ['required'],
-            'email' => ['required', 'max:50', 'email'],
-            'Address1' => ['required'],
-            'Address2' => ['required'],
-            'city' => ['required'],
-            'country' => ['required'],
-            'pincode' => ['required'],
-            'message' => ['required', 'max:500', 'string'],
-            'tracking_no'=>['required'],
 
-        ]);
-         $tracking_no = 'order'.rand(1,10000);
+        $order = new OrderReceived();
 
-        OrderReceived::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'Address1' => $request->Address1,
-            'Address2' => $request->Address2,
-            'city' => $request->city,
-            'country' => $request->country,
-            'pincode' => $request->pincode,
-            'message' => $request->message,
-            'tracking_no' => $tracking_no,
+           $order->name = $request->name;
+           $order->phone = $request->phone;
+           $order->email = $request->email;
+           $order->phone = $request->phone;
+           $order->Address1 = $request->Address1;
+           $order->Address2 = $request->Address2;
+           $order->city = $request->city;
+           $order->country = $request->country;
+           $order->pincode = $request->pincode;
+           $order->tracking_no ='order' .rand(1,10000);
 
-        ]);
+           $order->save();
+
 
         $carts = Order::where('user_id',auth()->user()->id)->get();
 
@@ -54,10 +41,19 @@ class checkoutController extends Controller
 
             OrderReceivedItem::create([
 
+                'orderrecieved_id' =>$order->id,
+                'menu_id' =>$cart->menu_id,
+                'price' =>$cart->price,
+                'quantity' =>$cart->quantity,
 
 
             ]);
+
         }
+
+            return back()
+            ->with("success","order has added  successfully");
+
 }
 
 

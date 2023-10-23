@@ -9,6 +9,6 @@ class OrderReceived extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'email','phone', 'city', 'country','Address1','Address2','pincode','message','tracking_no','status'];
+    protected $fillable = ['name', 'email','phone', 'city', 'country','Address1','Address2','code','message','tracking_no','status'];
 
 }

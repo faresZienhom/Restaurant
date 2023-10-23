@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/ShopingCart', [shopigCartController::class, 'index'])->name('shoping.index');
     Route::delete('/carts/{id}', [CartController::class, 'destroy'])->name('carts.delete');
     Route::get('/checkout', [checkoutController::class, 'index']);
-    Route::post('/place-order', [checkoutController::class, 'placeorder']);
+    Route::post('/place-order', [checkoutController::class, 'placeorder'])->name('checkout.store');
 
 
 });

@@ -22,14 +22,21 @@
 
         <!--Default Links-->
         <ul class="default-links">
-            <li>Returning customer? <a href="#" data-toggle="modal" data-target="#schedule-box">Click here to
+            <li>Returning customer? <a href="/login" data-toggle="modal" data-target="#schedule-box">Click here to
                     login</a></li>
         </ul>
 
         <!--Billing Details-->
         <div class="billing-details">
             <div class="shop-form">
-                <form method="post" action="http://designarc.biz/demos/wengdo/checkout.html">
+                @if(session()->has('success'))
+                <div class=" alert alert-success">
+                   {{ session()->get('success') }}
+               </div>
+                @endif
+
+                <form action="{{ route('checkout.store') }}" method="POST" id="payment-form">
+                    @csrf
                     <div class="row clearfix">
                         <div class="col-lg-7 col-md-12 col-sm-12">
 
@@ -52,24 +59,26 @@
                                         <input type="text" name="phone" value=""
                                             placeholder=" Phone Namber">
                                     </div>
+
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label"> Email </div>
                                         <input type="text" name="email" value=""
                                             placeholder=" Email ">
                                     </div>
 
-
                                     <!--Form Group-->
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Address1 <sup>*</sup></div>
-                                        <input type="email" name="Address1" value=""
+                                        <input type="text" name="Address1" value=""
                                             placeholder="Street Address">
                                     </div>
+
                                   <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                  <div class="field-label">Address2 <sup>*</sup></div>
-                                        <input class="address-two" type="email" name="Address2" value=""
+                                        <input class="address-two" type="text" name="Address2" value=""
                                             placeholder="Apartment, Suit unit etc (optional)">
                                     </div>
+
 
                                     <!--Form Group-->
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
@@ -78,35 +87,21 @@
                                     </div>
 
                                     <!--Form Group-->
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">State / Country <sup>*</sup> </div>
                                         <input type="text" name="country" value="" placeholder="State / Country">
 
                                     </div>
 
+
                                     <!--Form Group-->
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                        <div class="field-label">Postcode / Zip <sup>*</sup></div>
-                                        <input type="text" name="code" value="" placeholder="Postcode / Zip">
-                                    </div>
-
-
-
-                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="check-box"><input type="checkbox" name="shipping-option"
-                                                id="account-option"> &ensp; <label for="account-option">Creat an
-                                                account?</label></div>
-                                    </div>
-
-                                    <div class="form-group sec-title col-md-12 col-xs-12">
-                                        <h2>Ship to Different Address</h2>
-                                    </div>
-
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                                        <div class="field-label">Order Notes</div>
-                                        <textarea
-                                            placeholder="Note about your order. e.g. special note for delivery"></textarea>
+                                        <div class="field-label">Postcode / Zip <sup>*</sup></div>
+                                        <input type="text" name="pincode" value="" placeholder="Postcode / Zip">
                                     </div>
+
+
+
 
                                 </div>
                             </div>
@@ -129,12 +124,7 @@
                                     </tr>
                                 </thead>
 
-
-                            <tbody>
-
-
-
-
+                                <tbody>
                          @foreach ($carts as $cart)
 
                                 <tr>
@@ -193,17 +183,17 @@
                                         </ul>
                                     </div>
 
-                                    <button type="button" class="theme-btn btn-style-five"><span
+                                    <button type="submit" class="theme-btn btn-style-five"><span
                                             class="txt">Place Order</span></button>
+
+
 
                                 </div>
                                 <!--End Place Order-->
 
                             </div>
-
-
+                            </div>
                         </div>
-                    </div>
                 </form>
 
             </div>
